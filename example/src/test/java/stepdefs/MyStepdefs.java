@@ -28,6 +28,7 @@ public class MyStepdefs {
 
     @When("^I add the two values$")
     public void iAddTheTwoValues() {
+        calculator = new Calculator();
         result = calculator.add(value1, value2);
         System.out.print(result);
     }

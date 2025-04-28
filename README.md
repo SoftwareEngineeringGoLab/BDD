@@ -3,7 +3,6 @@
 
 ## بخش اول - اجرای یک مثال
 
-### شماره‌ی ۱ الی ۵
 
 ابتدا پروژه را ایجاد کرده و فایل `pom.xml` را با محتوای زیر درست می‌کنیم:
 
@@ -37,7 +36,6 @@
 
 ![imports.png](images/imports.png)
 
-### شماره‌ی ۶ الی ۱۰
 
 ابتدا همان طور که گفته شده است بخش `src/test/resources` را می‌سازیم.
 
@@ -77,3 +75,20 @@
 اسم پکیج فایل فیچر را هم تغییر می‌دهیم تا در نهایت با موفقیت اجرا شود.
 
 ![feature-pass.png](images/feature-pass.png)
+
+
+حال به سراغ ایجاد `RunnerTest` می‌رویم.
+ابتدا همان طور که گفته شده است، فقط انوتیشن `@RunWith(Cucumber.class)`
+را استفاده می‌کنیم.
+
+![RunnerTest-Fail.png](images/RunnerTest-Fail.png)
+
+که همان طور که مشاهده می‌شود با ارور مواجه می‌شویم.
+حال از انوتیشن `@CucumberOptions`
+نیز استفاده می‌کنیم.
+
+![RunnerTest-Pass.png](images/RunnerTest-Pass.png)
+
+مشاهده می‌شود که با تغییر تست هم همه چیز به خوبی اجرا می‌شود.
+
+![Change-Test.png](images/Change-Test.png)

@@ -37,3 +37,43 @@
 
 ![imports.png](images/imports.png)
 
+### شماره‌ی ۶ الی ۱۰
+
+ابتدا همان طور که گفته شده است بخش `src/test/resources` را می‌سازیم.
+
+![resources.png](images/resources.png)
+
+![test-root.png](images/test-root.png)
+
+حال در این بخش `calculator.feature`
+را می‌سازیم:
+![calculator-feature.png](images/calculator-feature.png)
+
+همان طور که گفته شده است تعریف استپ‌ها را هم قرار می‌دهیم:
+
+![step-defs.png](images/step-defs.png)
+
+و کد جمع دو عدد را در calculator قرار می‌دهیم:
+
+![calculator-java.png](images/calculator-java.png)
+
+تست میون با موفقیت اجرا می‌شود:
+
+![maven-test-success.png](images/maven-test-success.png)
+
+اما اگر feature را به تنهایی اجرا کنیم به مشکل می‌خوریم:
+
+![feature-run-error.png](images/feature-run-error.png)
+
+برای رفع این مشکل در `pom.xml` این تغییر را می‌دهیم:
+
+![update-dependency.png](images/update-dependency.png)
+
+بر روی خود فایل `calculator.feature`
+هم می‌رویم و با راست کلیک گزینه‌ی کانفیگ آن را هم به این صورت تغییر می‌دهیم:
+
+![calculator-config.png](images/calculator-config.png)
+
+اسم پکیج فایل فیچر را هم تغییر می‌دهیم تا در نهایت با موفقیت اجرا شود.
+
+![feature-pass.png](images/feature-pass.png)

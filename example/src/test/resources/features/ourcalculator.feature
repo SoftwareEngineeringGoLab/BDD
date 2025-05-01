@@ -140,3 +140,29 @@
         Given Two input numbers, 0 and 0
         When I raise the first number to the power of the second number
         Then the result should be an error
+
+
+    Scenario Outline:
+      Given Two input numbers, <first> and <second>, and operand <opt>
+      When I perform the operation
+      Then the result should be <result>
+
+      Examples:
+        | first | second | opt | result |
+        | 6 | 2 | * | 12 |
+        | 6 | 2 | / | 3 |
+        | 6 | 2 | ^ | 36 |
+        | 100 | -2 | * | -200 |
+        | 100 | -2 | / | -50 |
+        | 100 | -2 | ^ | 0.0001 |
+        | 100 | 0 | * | 0 |
+        | 100 | 0 | / | an error |
+        | 100 | 0 | ^ | 1 |
+        | 0 | 100 | * | 0 |
+        | 0 | 100 | / | 0 |
+        | 0 | 100 | ^ | 0 |
+        | 0 | 0 | * | 0 |
+        | 0 | 0 | / | an error |
+        | 0 | 0 | ^ | an error |
+        | 13 | 2 | / | 6.5 |
+        | 13 | 2 | * | 26 |

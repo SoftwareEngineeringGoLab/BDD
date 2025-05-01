@@ -37,11 +37,11 @@ public class OurCalculator {
         }
     }
 
-    public int power(int a, int b) {
+    public float power(int a, int b) {
         if (a == 0 && b == 0) {
             throw new ArithmeticException("Indeterminate form");
         }
-        return (int) Math.pow(a, b);
+        return (float) Math.pow(a, b);
     }
 
     public float calculate(int a, int b, String operator) {

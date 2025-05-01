@@ -3,12 +3,14 @@ package stepdefs;
 import calculator.OurCalculator;
 import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class OurStepdefs {
     private static OurCalculator calculator;
     private int value1;
     private int value2;
+    private String opt;
     private float result;
     private boolean exceptionThrown;
 
@@ -84,5 +86,50 @@ public class OurStepdefs {
     @Given("the result should be an error")
     public void theResultShouldBeAnError() {
         Assert.assertTrue(exceptionThrown);
+    }
+
+    @Given("Two input numbers, {int} and {int}, and operand *")
+    public void twoInputNumbersAndOperand(int int1, int int2) {
+        value1 = int1;
+        value2 = int2;
+        opt = "*";
+    }
+
+    @Given("Two input numbers, {int} and {int}, and operand \\/")
+    public void twoInputNumbersAndOperand2(int int1, int int2) {
+        value1 = int1;
+        value2 = int2;
+        opt = "/";
+    }
+
+    @Given("Two input numbers, {int} and {int}, and operand +")
+    public void twoInputNumbersAndOperand3(int int1, int int2) {
+        value1 = int1;
+        value2 = int2;
+        opt = "+";
+    }
+
+    @Given("Two input numbers, {int} and {int}, and operand -")
+    public void twoInputNumbersAndOperand4(int int1, int int2) {
+        value1 = int1;
+        value2 = int2;
+        opt = "-";
+    }
+
+    @Given("Two input numbers, {int} and {int}, and operand ^")
+    public void twoInputNumbersAndOperand5(int int1, int int2) {
+        value1 = int1;
+        value2 = int2;
+        opt = "^";
+    }
+
+    @When("I perform the operation")
+    public void iPerformTheOperation() {
+        try {
+            result = calculator.calculate(value1, value2, opt);
+            exceptionThrown = false;
+        } catch (ArithmeticException e) {
+            exceptionThrown = true;
+        }
     }
 }

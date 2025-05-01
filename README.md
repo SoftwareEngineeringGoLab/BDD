@@ -100,12 +100,14 @@
 ![Scenario-test-fail.png](images/Scenario-test-fail.png)
 
 با بررسی تست فیل شده متوجه میشویم تعریف ما اعداد منفی را در نظر نمیگیرد. حال کد موجود برای stepdefs را تغییر می‌دهیم و به صورت زیر انوتیشن‌ها را قرار می‌دهیم، تا هر عدد صحیحی دربرگرفته شود.
-@Given("Two input values, {int} and {int}")
-public void two_input_values_and(Integer int1, Integer int2) {
-value1 = int1;
-value2 = int2;
-}
-```
+
+
+```java
+    @Given("Two input values, {int} and {int}")
+    public void two_input_values_and(Integer int1, Integer int2) {
+        value1 = int1;
+        value2 = int2;
+    }
     @When("I add the two values")
     public void i_add_the_two_values() {
         calculator = new Calculator();
@@ -118,6 +120,7 @@ value2 = int2;
         Assert.assertEquals(expected, result);
     }
 ```
+
 حال مشاهده می‌شود که با تغییرات انجام شده، تست سناریو هم به درستی اجرا می‌شود.
 
 ![Scenario-test-pass.png](images/Scenario-test-pass.png)

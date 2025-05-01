@@ -1,6 +1,8 @@
 # BDD
 4th Assignment: Transforming requirements into test cases using the Behavior-Driven Development (BDD) approach.
 
+<div dir="rtl">
+
 ## بخش اول - اجرای یک مثال
 
 
@@ -119,3 +121,61 @@ value2 = int2;
 حال مشاهده می‌شود که با تغییرات انجام شده، تست سناریو هم به درستی اجرا می‌شود.
 
 ![Scenario-test-pass.png](images/Scenario-test-pass.png)
+
+
+## بخش آخر - ماشین حساب پیشرفته
+
+در این بخش باید طبق دستور کار یک ماشین حساب پیاده سازی کنیم که قابلیت گرفتن اعداد و برخی عملگرها را داشته باشد. در فایل جدیدی به اسم `ourcalculator.feature`
+شروع به پیاده‌سازی سناریوهای عادی و همچنین سناریو اوتلاین‌ها می‌کنیم. به عنوان مثال، سناریو اوتلاین به این صورت است:
+
+![ourcalculator-outline.png](images/ourcalculator-outline.png)
+
+برخی از سناریوهای عادی هم به این صورت هستند:
+
+![ourcalculator-happy-scenario.png](images/ourcalculator-happy-scenario.png)
+
+یک سری سناریوی خطای دیگر از جمله اورفلو، تقسیم بر صفر و... نیز در سناریوها آمده‌اند:
+
+![zero-to-zero.png](images/zero-to-zero.png)
+
+
+![over-under-flow.png](images/over-under-flow.png)
+
+به علاوه، باید این عبارتها را مشابه قسمت قبل در فایل `ourstepdefs`
+تعریف هم بکنیم.
+به عنوان مثال:
+
+![ourstepdefs.png](images/ourstepdefs.png)
+
+برای پیاده‌سازی ماشین حساب و در نظر گرفتن ارورهای مختلف، می‌توان از کتابخانه‌ی `Math` و توابعی مانند `Math.addExact`
+استفاده کرد.
+مثلا:
+
+```java
+ public int add(int a, int b) {
+        try {
+            return Math.addExact(a, b);
+        } catch (ArithmeticException e) {
+            throw new ArithmeticException("Integer overflow");
+        }
+    }
+```
+
+حال به سراغ اجرا کردن تست‌ها می‌رویم.
+اجرا کردن فایل `ourcalculator.feature`:
+
+![ourcalculator-feature-pass.png](images/ourcalculator-feature-pass.png)
+
+اجرا کردن فایل `RunnerTest`:
+
+![Runner-test-final.png](images/Runner-test-final.png)
+
+همان طور که مشخص است، همه‌ی تست‌ها به درستی اجرا می‌شوند.
+    
+توجه داشته باشید که در فایل `RunnerTest`
+از آنجا که هم تعاریف بخش اول و دوم پروژه هر دو در یک پکیج قرار گرفته‌اند (`stepdefs`)
+و هم فیچرها در یک پکیج قرار گرفته‌اند،
+همان کانفیگ قبلی (و با `glue=stepdefs`)
+کارساز است. 
+
+</div>

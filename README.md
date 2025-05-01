@@ -57,7 +57,7 @@
 
 ![calculator-java.png](images/calculator-java.png)
 
-تست میون با موفقیت اجرا می‌شود:
+تست `maven` با موفقیت اجرا می‌شود:
 
 ![maven-test-success.png](images/maven-test-success.png)
 
@@ -74,7 +74,7 @@
 
 ![calculator-config.png](images/calculator-config.png)
 
-اسم پکیج فایل فیچر را هم تغییر می‌دهیم تا در نهایت با موفقیت اجرا شود.
+اسم پکیج فایل `.feature` را هم تغییر می‌دهیم تا در نهایت با موفقیت اجرا شود.
 
 ![feature-pass.png](images/feature-pass.png)
 
@@ -93,9 +93,9 @@
 
 مشاهده می‌شود که با تغییر تست هم همه چیز به خوبی اجرا می‌شود.
 
-![Change-Test.png](images/Change-Test.png
+![Change-Test.png](images/Change-Test.png)
 
-حال  سناریو اوتلاین را اضافه می‌کنیم. مشاهده می‌شود که نتیجه‌ی اجرای تست با مشکل روبه‌رو است.
+حال  `Scenario Outline` را اضافه می‌کنیم. مشاهده می‌شود که نتیجه‌ی اجرای تست با مشکل روبه‌رو است.
 
 ![Scenario-test-fail.png](images/Scenario-test-fail.png)
 
@@ -126,7 +126,7 @@ value2 = int2;
 ## بخش آخر - ماشین حساب پیشرفته
 
 در این بخش باید طبق دستور کار یک ماشین حساب پیاده سازی کنیم که قابلیت گرفتن اعداد و برخی عملگرها را داشته باشد. در فایل جدیدی به اسم `ourcalculator.feature`
-شروع به پیاده‌سازی سناریوهای عادی و همچنین سناریو اوتلاین‌ها می‌کنیم. به عنوان مثال، سناریو اوتلاین به این صورت است:
+شروع به اضافه کردن سناریوهای عادی و همچنین `Scenario Outline` می‌کنیم. به عنوان مثال، `Scenario Outline` به این صورت است:
 
 ![ourcalculator-outline.png](images/ourcalculator-outline.png)
 

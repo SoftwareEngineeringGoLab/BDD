@@ -19,23 +19,21 @@ public class MyStepdefs {
         calculator = new Calculator();
     }
 
-    @Given("^Two input values, (\\d+) and (\\d+)$")
-    public void twoInputValuesAnd(int arg0, int arg1) {
-        value1 = arg0;
-        value2 = arg1;
+
+    @Given("Two input values, {int} and {int}")
+    public void two_input_values_and(Integer int1, Integer int2) {
+        value1 = int1;
+        value2 = int2;
     }
-
-
-    @When("^I add the two values$")
-    public void iAddTheTwoValues() {
+    @When("I add the two values")
+    public void i_add_the_two_values() {
         calculator = new Calculator();
         result = calculator.add(value1, value2);
-        System.out.print(result);
+        System.out.println(result);
     }
-
-    @Then("^I expect the result (\\d+)$")
-    public void iExpectTheResult(int arg0) {
-        Assert.assertEquals(arg0, result);
-
+    @Then("I expect the result {int}")
+    public void i_expect_the_result(Integer int1) {
+        int expected = int1;
+        Assert.assertEquals(expected, result);
     }
 }

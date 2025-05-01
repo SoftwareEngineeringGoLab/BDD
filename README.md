@@ -91,4 +91,31 @@
 
 مشاهده می‌شود که با تغییر تست هم همه چیز به خوبی اجرا می‌شود.
 
-![Change-Test.png](images/Change-Test.png)
+![Change-Test.png](images/Change-Test.png
+
+حال  سناریو اوتلاین را اضافه می‌کنیم. مشاهده می‌شود که نتیجه‌ی اجرای تست با مشکل روبه‌رو است.
+
+![Scenario-test-fail.png](images/Scenario-test-fail.png)
+
+با بررسی تست فیل شده متوجه میشویم تعریف ما اعداد منفی را در نظر نمیگیرد. حال کد موجود برای stepdefs را تغییر می‌دهیم و به صورت زیر انوتیشن‌ها را قرار می‌دهیم، تا هر عدد صحیحی دربرگرفته شود.
+@Given("Two input values, {int} and {int}")
+public void two_input_values_and(Integer int1, Integer int2) {
+value1 = int1;
+value2 = int2;
+}
+```
+    @When("I add the two values")
+    public void i_add_the_two_values() {
+        calculator = new Calculator();
+        result = calculator.add(value1, value2);
+        System.out.println(result);
+    }
+    @Then("I expect the result {int}")
+    public void i_expect_the_result(Integer int1) {
+        int expected = int1;
+        Assert.assertEquals(expected, result);
+    }
+```
+حال مشاهده می‌شود که با تغییرات انجام شده، تست سناریو هم به درستی اجرا می‌شود.
+
+![Scenario-test-pass.png](images/Scenario-test-pass.png)
